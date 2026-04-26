@@ -1,11 +1,28 @@
-import { ProjectPageTemplate } from "@/components/project-page-template";
+import { AppHeader } from "@/components/app-header";
+import { PromptInputBox } from "@/components/ui/ai-prompt-box";
 
 export default function FindProjectsPage() {
   return (
-    <ProjectPageTemplate
-      title="Find Projects"
-      subtitle="Pick your domain and available time, then explore GitHub repositories with difficulty score, expected completion hours, and prerequisite skills."
-      imageUrl="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80"
-    />
+    <div className="min-h-screen bg-black text-white">
+      <AppHeader />
+      <main className="mx-auto max-w-6xl px-4 py-10">
+        <h1 className="text-3xl font-bold md:text-5xl">Find Projects</h1>
+        <p className="mt-3 max-w-3xl text-zinc-300">
+          Describe your domain and free hours, then generate project prompts tailored to your
+          learning path and current skill level.
+        </p>
+
+        <section className="mt-8 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-violet-950/20 to-cyan-950/20 p-5 md:p-8">
+          <div className="mx-auto max-w-3xl">
+            <PromptInputBox
+              placeholder="Example: I have 6 hours this week and want a Python data project with clear milestones."
+              onSend={(message, files) => {
+                console.log("Find Projects prompt:", message, files);
+              }}
+            />
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }

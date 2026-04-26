@@ -94,10 +94,10 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
     const angle = ((index / total) * 360 + rotationAngle) % 360;
     const radius = 220;
     const radian = (angle * Math.PI) / 180;
-    const x = radius * Math.cos(radian);
-    const y = radius * Math.sin(radian);
+    const x = Number((radius * Math.cos(radian)).toFixed(3));
+    const y = Number((radius * Math.sin(radian)).toFixed(3));
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
-    const opacity = Math.max(0.4, Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2)));
+    const opacity = Number(Math.max(0.4, Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))).toFixed(6));
     return { x, y, zIndex, opacity };
   };
 
@@ -130,7 +130,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
           ref={orbitRef}
           style={{ perspective: "1000px" }}
         >
-          <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
+          <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-violet-500 to-indigo-500 animate-pulse flex items-center justify-center z-10">
             <div className="absolute w-20 h-20 rounded-full border border-white/20 animate-ping opacity-70" />
             <div
               className="absolute w-24 h-24 rounded-full border border-white/10 animate-ping opacity-50"

@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Activity,
   BookmarkCheck,
   Compass,
   Home,
@@ -81,7 +80,7 @@ export default function HomePage() {
     <div className="bg-black text-white">
       <AppHeader />
       <RainingLetters />
-      <section className="mx-auto max-w-6xl px-4">
+      <section className="relative mx-auto max-w-6xl px-4">
         <ContainerScroll
           titleComponent={
             <div>
@@ -93,24 +92,30 @@ export default function HomePage() {
             </div>
           }
         >
-          <div className="h-full w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black p-8">
-            <div className="grid h-full grid-cols-1 gap-4 md:grid-cols-3">
-              {[
-                "Domain-based project matching",
-                "Difficulty scoring and learning curve",
-                "Time-based commitment estimates",
-              ].map((item, idx) => (
-                <article key={item} className="rounded-xl border border-white/10 bg-zinc-900/60 p-5">
-                  <Activity className="h-5 w-5 text-emerald-300" />
-                  <h3 className="mt-3 font-semibold">Feature {idx + 1}</h3>
-                  <p className="mt-2 text-sm text-zinc-300">{item}</p>
-                  <img
-                    src={`https://images.unsplash.com/photo-${idx === 0 ? "1518773553398-650c184e0bb3" : idx === 1 ? "1555949963-aa79dcee981c" : "1461749280684-dccba630e2f6"}?auto=format&fit=crop&w=1200&q=80`}
-                    alt={item}
-                    className="mt-4 h-32 w-full rounded-lg object-cover"
-                  />
-                </article>
-              ))}
+          <div className="relative h-full w-full overflow-hidden bg-gradient-to-br from-fuchsia-950/40 via-violet-950/35 to-cyan-950/35 p-5 md:p-8">
+            <div className="pointer-events-none absolute -left-10 top-8 h-32 w-32 rounded-full bg-fuchsia-500/30 blur-3xl md:h-44 md:w-44" />
+            <div className="pointer-events-none absolute -right-10 bottom-6 h-32 w-32 rounded-full bg-cyan-500/30 blur-3xl md:h-44 md:w-44" />
+            <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center rounded-2xl border border-white/15 bg-black/35 p-4 text-center backdrop-blur-sm md:p-8">
+              <p className="rounded-full border border-fuchsia-300/40 bg-fuchsia-500/15 px-4 py-1 text-xs uppercase tracking-[0.24em] text-fuchsia-200">
+                Built for curious builders
+              </p>
+              <h3 className="mt-6 text-2xl font-semibold text-white md:text-3xl">
+                Pick your stack, set your free hours, and let GitOracle find the perfect repo quest.
+              </h3>
+              <p className="mt-4 max-w-2xl text-sm text-zinc-200 md:text-base">
+                No doom-scrolling. No random bookmarks. Just fun, right-sized projects with clear
+                momentum signals so you can ship something cool every week.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-200">
+                {["Quick wins", "Real-world repos", "Difficulty-aware picks", "Time-smart planning"].map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-cyan-300/30 bg-gradient-to-r from-fuchsia-500/20 to-cyan-500/20 px-3 py-1"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </ContainerScroll>

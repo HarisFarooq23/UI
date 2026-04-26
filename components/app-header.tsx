@@ -33,12 +33,18 @@ export function AppHeader() {
         </nav>
 
         <div className="relative flex items-center group">
-          <button className="absolute right-0 h-8 -translate-x-10 rounded-full bg-white px-2.5 text-black transition-all duration-300 group-hover:-translate-x-16">
+          <Link
+            href="/sign-in"
+            className="absolute right-0 flex h-8 -translate-x-10 items-center rounded-full bg-white px-2.5 text-black transition-all duration-300 group-hover:-translate-x-16"
+          >
             <ArrowUpRight className="h-3 w-3" />
-          </button>
-          <button className="z-10 h-8 rounded-full bg-white px-6 text-xs font-normal text-black transition-all duration-300 hover:bg-white/90">
+          </Link>
+          <Link
+            href="/sign-in"
+            className="z-10 flex h-8 items-center rounded-full bg-white px-6 text-xs font-normal text-black transition-all duration-300 hover:bg-white/90"
+          >
             Login
-          </button>
+          </Link>
         </div>
       </div>
     </header>
